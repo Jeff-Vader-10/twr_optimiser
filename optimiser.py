@@ -50,8 +50,7 @@ class vehicle:
         
     def calc_pay_frac(self, delta_v, acceleration):
         payload = (np.exp(delta_v/(self.isp*g0))*(self.pmf - 1) + 1)/(np.exp(delta_v/(self.isp*g0))*self.pmf) - acceleration/(self.eng_twr*g0)
-        dry = acceleration/(self.eng_twr*g0) + (1 - np.exp(-delta_v/(self.isp*g0)))*(1/self.pmf - 1)
-        return (payload)
+        return payload
     
     def plot(self, pos, vel, target_C3):
         resolution = 50
