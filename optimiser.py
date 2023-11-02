@@ -63,7 +63,7 @@ class vehicle:
         print("")
         for i in range(resolution):
             delta_vs[i] = self.sim(accelerations[i], pos, vel, target_C3)
-            payload_fractions[i] = self.calc_pay_frac(delta_vs[i]) - accelerations[i]/(self.eng_twr*g0) 
+            payload_fractions[i] = self.calc_pay_frac(delta_vs[i], accelerations[i]) - accelerations[i]/(self.eng_twr*g0) 
 
         plt.figure()
         plt.plot(accelerations, payload_fractions)
@@ -83,9 +83,9 @@ class vehicle:
 
         index_max = payload_fractions.argmax()
         print(self)
-        print(np.max(payload_fractions), accelerations[index_max], delta_vs[index_max], drys[index_max])
+        print("max payload fraction: ", np.max(payload_fractions), "optimal initial acceleration: ", accelerations[index_max],"optimal delta-V: ", delta_vs[index_max])
         print("")
-        return (np.max(payload_fractions), accelerations[index_max], delta_vs[index_max], drys[index_max])
+        return (np.max(payload_fractions), accelerations[index_max], delta_vs[index_max])
 
 case_1 = vehicle(900, 2.14, 0.814)
 case_2 = vehicle(460, 47.9, 0.897)
