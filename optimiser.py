@@ -83,7 +83,7 @@ class vehicle:
 
         index_max = payload_fractions.argmax()
         print(self)
-        print("max payload fraction: ", np.max(payload_fractions), "optimal initial acceleration: ", accelerations[index_max],"optimal delta-V: ", delta_vs[index_max])
+        print("Max Payload Fraction: ", np.max(payload_fractions), "Optimal Initial Acceleration (m/s^2): ", accelerations[index_max],"Optimal Delta-V (m/s): ", delta_vs[index_max])
         print("")
         return (np.max(payload_fractions), accelerations[index_max], delta_vs[index_max])
 
